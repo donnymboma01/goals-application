@@ -14,13 +14,20 @@ const Login = () =>{
         event.preventDefault();
     };
 
+    const onChange = (event) =>{
+        setFormData((prevState ) =>({
+            ...prevState,
+            [event.target.name] : event.target.value
+        }))
+    };
+
     return(
         <>
               <section className='heading'>
                 <h1>
                     <FaSignInAlt/> Login
                 </h1>
-                <p>Please create an account before login</p>
+                <p>Please login to your account</p>
             </section>  
 
             <section className='form'>
@@ -33,7 +40,7 @@ const Login = () =>{
                                 name='email' 
                                 value={email} 
                                 placeholder='Enter your email'
-                                onChange={(event) =>{setFormData(event.target.value)}} 
+                                onChange={onChange} 
                             />
                         </div>
                         <div className='form-group'>
@@ -44,7 +51,7 @@ const Login = () =>{
                                 name='password' 
                                 value={password} 
                                 placeholder='Enter your password' 
-                                onChange={(event) =>{setFormData(event.target.value)}} 
+                                onChange={onChange}
                             />
                         </div>
                         <div className='form-group'>
